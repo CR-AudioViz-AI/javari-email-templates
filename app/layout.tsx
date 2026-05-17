@@ -1,20 +1,34 @@
-// app/layout.tsx — Javari Email Templates — CR AudioViz AI
-// Updated: 2026-03-15
-import type { Metadata } from 'next';
-import Script from 'next/script';
-import './globals.css';
+// app/layout.tsx — Javari Email
+// Fortune 50 quality — uses AppShell for full ecosystem integration
+// May 17, 2026 — CR AudioViz AI, LLC
+import type { Metadata } from 'next'
+import './globals.css'
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
-  title: 'Javari Email Templates | CR AudioViz AI',
-  description: 'AI Email Template Builder — Professional emails in seconds',
-};
+  title: 'Javari Email | Javari by CR AudioViz AI',
+  description: 'AI email template creator',
+  keywords: 'Javari Email, Javari, AI, CR AudioViz AI',
+}
+
+import AppShell from '@/components/AppShell'
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head><meta name="viewport" content="width=device-width, initial-scale=1" /></head>
-      <body className="min-h-screen bg-gray-50">
-        {children}
-        <Script src="https://javariai.com/embed.js" strategy="lazyOnload" />
+      <body style={{ margin: 0, padding: 0 }}>
+        <AppShell
+          appName="Javari Email"
+          appColor="#f59e0b"
+          appEmoji="📧"
+          appDesc="AI email template creator"
+      handoffApp="Javari Marketing"
+      handoffUrl="https://javari-marketing.vercel.app"
+      handoffPitch="Emails ready? Build a full marketing strategy →"
+        >
+          {children}
+        </AppShell>
       </body>
     </html>
-  );
+  )
 }
